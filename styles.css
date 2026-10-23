@@ -1,0 +1,1006 @@
+/* ========================================================
+   ESTILO PIXEL ART / RETRO ARCADE (8-BIT & 16-BIT)
+   ======================================================== */
+
+:root {
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-retro: 'VT323', monospace;
+
+  /* Paleta Pixel Arcade */
+  --pixel-bg: #110e1b;
+  --pixel-surface: #1d182b;
+  --pixel-surface-dark: #14101e;
+  --pixel-border: #000000;
+  --pixel-border-light: #3d3257;
+
+  /* Colores Neón / Retro */
+  --retro-green: #38b764;
+  --retro-yellow: #f8c53a;
+  --retro-cyan: #43e5f7;
+  --retro-pink: #f73c78;
+  --retro-purple: #8b3fdf;
+  --text-pixel: #ffffff;
+  --text-muted: #9f96b9;
+}
+
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border-radius: 0 !important; /* Estilo píxel cuadrado */
+}
+
+body {
+  font-family: var(--font-retro);
+  background-color: var(--pixel-bg);
+  background-image: 
+    radial-gradient(#2b2144 15%, transparent 16%),
+    radial-gradient(#1e1730 15%, transparent 16%);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  color: var(--text-pixel);
+  font-size: 1.35rem;
+  line-height: 1.4;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Efecto sutil de monitor CRT / Scanlines */
+.crt-scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.18) 0px,
+    rgba(0, 0, 0, 0.18) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+/* ========================================================
+   BARRA SUPERIOR (MARQUEE ARCADE)
+   ======================================================== */
+/* ========================================================
+   BARRA SUPERIOR (TICKER Y NAVBAR ARCADE)
+   ======================================================== */
+.arcade-top-ticker {
+  background: #09070e;
+  border-bottom: 2px solid #000;
+  text-align: center;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  color: var(--retro-yellow);
+  letter-spacing: 1px;
+}
+
+.arcade-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  background: rgba(20, 16, 30, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 4px solid var(--pixel-border);
+  box-shadow: 0 4px 0 var(--pixel-border-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.arcade-logo {
+  display: flex;
+  align-items: center;
+}
+
+.arcade-logo .logo-title {
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.neon-green {
+  color: var(--retro-green);
+  text-shadow: 2px 2px 0 var(--pixel-border);
+}
+
+.arcade-marquee {
+  display: none;
+}
+
+.blink {
+  color: var(--retro-yellow);
+  animation: pixelBlink 1s infinite steps(1);
+}
+
+@keyframes pixelBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.arcade-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.pixel-nav-link {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  transition: color 0.1s;
+  white-space: nowrap;
+}
+
+.pixel-nav-link:hover, .pixel-nav-link.active {
+  color: var(--retro-yellow);
+  text-shadow: 2px 2px 0 var(--pixel-border);
+}
+
+/* ========================================================
+   BOTONES PIXEL ART
+   ======================================================== */
+.pixel-btn {
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  padding: 0.8rem 1.4rem;
+  background: #3a2e56;
+  color: #fff;
+  border: 4px solid var(--pixel-border);
+  box-shadow: 
+    inset -4px -4px 0 0 #211933,
+    inset 4px 4px 0 0 #604f8a,
+    0 6px 0 0 var(--pixel-border);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.05s;
+  user-select: none;
+}
+
+.pixel-btn:active {
+  transform: translateY(4px);
+  box-shadow: 
+    inset -4px -4px 0 0 #211933,
+    inset 4px 4px 0 0 #604f8a,
+    0 2px 0 0 var(--pixel-border);
+}
+
+.btn-pc {
+  background: var(--retro-pink);
+  box-shadow: 
+    inset -4px -4px 0 0 #aa1749,
+    inset 4px 4px 0 0 #ff82ad,
+    0 6px 0 0 var(--pixel-border);
+}
+
+.btn-action {
+  background: var(--retro-green);
+  color: #0c3316;
+  font-size: 0.85rem;
+  box-shadow: 
+    inset -4px -4px 0 0 #1b6d36,
+    inset 4px 4px 0 0 #7eeaa2,
+    0 6px 0 0 var(--pixel-border);
+}
+
+.btn-mini {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.65rem;
+}
+
+.btn-highlight {
+  background: var(--retro-cyan);
+  color: #082d33;
+  box-shadow: 
+    inset -4px -4px 0 0 #1b7e8c,
+    inset 4px 4px 0 0 #9ef2fc,
+    0 6px 0 0 var(--pixel-border);
+}
+
+/* ========================================================
+   CONTENEDOR PRINCIPAL
+   ======================================================== */
+.arcade-container {
+  max-width: 1040px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* ========================================================
+   GABINETE ARCADE (PANTALLA DEL JUEGO)
+   ======================================================== */
+.arcade-cabinet-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cabinet-marquee-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  font-family: var(--font-pixel);
+}
+
+.cabinet-title {
+  font-size: 1.8rem;
+  color: var(--retro-yellow);
+  text-shadow: 
+    4px 4px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    0 0 15px rgba(248, 197, 58, 0.4);
+}
+
+.marquee-star {
+  color: var(--retro-pink);
+  font-size: 1.5rem;
+  animation: pulse 1s infinite alternate;
+}
+
+/* Estructura exterior del gabinete */
+.cabinet-frame {
+  width: 100%;
+  background: #181226;
+  border: 8px solid var(--pixel-border);
+  box-shadow: 
+    0 12px 0 0 #000,
+    inset -6px -6px 0 0 #0d0915,
+    inset 6px 6px 0 0 #3a2e57;
+  padding: 1.5rem;
+}
+
+/* Marco / Bezel de la pantalla CRT */
+.cabinet-screen-bezel {
+  background: #09070e;
+  border: 6px solid #000;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9);
+  padding: 0.8rem;
+}
+
+/* Visor 16:9 del juego */
+.screen-viewport {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Relación 16:9 */
+  background: #000;
+  overflow: hidden;
+  border: 4px solid #1c142b;
+}
+
+.screen-viewport iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 2;
+}
+
+/* Brillo de pantalla de cristal */
+.screen-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Pantalla de espera / Placeholder Pixel */
+.pixel-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #161224;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.arcade-title-screen {
+  width: min(100%, 760px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.8rem, 2.5vw, 1.5rem);
+  text-align: center;
+}
+
+.pixel-placeholder#start-overlay {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(82, 67, 125, 0.62), transparent 68%),
+    linear-gradient(180deg, #07090c 0%, #11121c 48%, #211d32 100%);
+}
+
+.machine-ready {
+  border: 2px solid var(--retro-green);
+  color: var(--retro-green);
+  font-family: var(--font-pixel);
+  font-size: clamp(0.5rem, 1.7vw, 0.78rem);
+  padding: 0.55rem 0.8rem;
+  text-shadow: 0 0 8px rgba(56, 183, 100, 0.65);
+}
+
+.title-arcade-main {
+  color: var(--retro-cyan);
+  font-family: var(--font-pixel);
+  font-size: clamp(1rem, 4vw, 2rem);
+  line-height: 1.5;
+  text-shadow: 3px 3px 0 #07151a, 0 0 14px rgba(67, 229, 247, 0.45);
+}
+
+.arcade-title-screen .start-prompt {
+  max-width: 700px;
+  color: #f4d4bd;
+  font-family: var(--font-retro);
+  font-size: clamp(1.15rem, 3vw, 1.8rem);
+  line-height: 1.25;
+}
+
+.start-action-zone {
+  width: min(100%, 420px);
+  margin-top: clamp(0.2rem, 1.5vw, 0.7rem);
+}
+
+.btn-arcade-start {
+  width: 100%;
+  min-height: clamp(3.4rem, 8vw, 4.2rem);
+  padding: 0.8rem 1rem;
+  border: 3px solid #a8ff9a;
+  background: #55df6d;
+  color: #153821;
+  font-family: var(--font-pixel);
+  font-size: clamp(0.62rem, 2vw, 0.9rem);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.26),
+    inset 0 -5px 0 rgba(12, 77, 35, 0.24),
+    0 0 0 4px #10131a,
+    0 7px 0 4px #08090d;
+  transition: background-color 0.12s, transform 0.08s, box-shadow 0.08s;
+}
+
+.btn-arcade-start:hover {
+  background: #78f28a;
+}
+
+.btn-arcade-start:focus-visible {
+  outline: 3px dashed #fff;
+  outline-offset: 10px;
+}
+
+.btn-arcade-start:active {
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -5px 0 rgba(12, 77, 35, 0.24),
+    0 0 0 4px #10131a,
+    0 3px 0 4px #08090d;
+}
+
+.pixel-placeholder-box {
+  max-width: 620px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pixel-sprite {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.float-anim {
+  animation: pixelFloat 2s steps(4) infinite alternate;
+}
+
+@keyframes pixelFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+.pixel-heading {
+  font-family: var(--font-pixel);
+  font-size: 1.2rem;
+  color: var(--retro-cyan);
+  text-shadow: 3px 3px 0 #000;
+  margin-bottom: 0.6rem;
+}
+
+.pixel-dialogue {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+
+.pixel-badge {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  background: #000;
+  border: 3px solid var(--retro-green);
+  color: var(--retro-green);
+  padding: 0.4rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.pixel-led {
+  width: 8px;
+  height: 8px;
+  background: var(--retro-green);
+  box-shadow: 0 0 6px var(--retro-green);
+}
+
+.quest-log {
+  background: #0d0917;
+  border: 4px solid var(--pixel-border);
+  box-shadow: inset 3px 3px 0 0 #2a1f42;
+  padding: 1.2rem;
+  text-align: left;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  color: #d1c7e6;
+}
+
+.quest-title {
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  color: var(--retro-yellow);
+  margin-bottom: 0.6rem;
+}
+
+.quest-log ul {
+  list-style: none;
+  padding-left: 0.5rem;
+}
+
+.quest-log li {
+  margin-bottom: 0.4rem;
+}
+
+/* Panel de control del gabinete */
+.cabinet-control-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.2rem;
+  background: #251d38;
+  border: 4px solid #000;
+  padding: 0.8rem 1.4rem;
+}
+
+.panel-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.panel-led.green {
+  width: 10px;
+  height: 10px;
+  background: var(--retro-green);
+  box-shadow: 0 0 8px var(--retro-green);
+}
+
+.panel-text {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  color: #ffffff;
+}
+
+.panel-right {
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* ========================================================
+   TARJETAS PIXEL ART (SECCIONES)
+   ======================================================== */
+.pixel-card {
+  background: var(--pixel-surface);
+  border: 6px solid var(--pixel-border);
+  box-shadow: 
+    0 8px 0 0 #000,
+    inset -4px -4px 0 0 #130f1e,
+    inset 4px 4px 0 0 #3b3056;
+  padding: 2rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+  border-bottom: 4px solid #000;
+  padding-bottom: 1rem;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+}
+
+.card-title {
+  font-family: var(--font-pixel);
+  font-size: 1.1rem;
+  color: var(--retro-yellow);
+  text-shadow: 3px 3px 0 #000;
+}
+
+/* ========================================================
+   CONTROLES PIXEL ART
+   ======================================================== */
+.controls-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
+}
+
+.pixel-key-box {
+  background: #14101e;
+  border: 4px solid #000;
+  box-shadow: inset 3px 3px 0 0 #2a1f42;
+  padding: 1.8rem 1.2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wasd-layout, .space-layout, .mouse-layout {
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.key-subrow {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.pixel-key {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  background: #2b2340;
+  color: var(--retro-cyan);
+  border: 3px solid #000;
+  box-shadow: 
+    inset -3px -3px 0 0 #120e1c,
+    inset 3px 3px 0 0 #4f4172,
+    0 4px 0 0 #000;
+  padding: 0.5rem 0.8rem;
+  min-width: 40px;
+  display: inline-block;
+}
+
+.key-space {
+  min-width: 190px;
+  font-size: 0.75rem;
+}
+
+.pixel-mouse {
+  font-size: 2.8rem;
+}
+
+.pixel-key-box h3 {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.pixel-key-box p {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+}
+
+/* ========================================================
+   ZONA DE DESCARGA PIXEL ART
+   ======================================================== */
+.download-zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  background: #1c152c;
+  border-color: #000;
+}
+
+.download-info .badge-pc {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  color: var(--retro-green);
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.download-info h2 {
+  font-family: var(--font-pixel);
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.download-info p {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+}
+
+.btn-download-pixel {
+  background: var(--retro-green);
+  color: #0c3316;
+  font-size: 0.85rem;
+  box-shadow: 
+    inset -4px -4px 0 0 #1b6d36,
+    inset 4px 4px 0 0 #7eeaa2,
+    0 6px 0 0 var(--pixel-border);
+  white-space: nowrap;
+}
+
+/* ========================================================
+   DESCRIPCIÓN / INFO
+   ======================================================== */
+.pixel-desc {
+  font-size: 1.4rem;
+  color: #ded6f0;
+}
+
+/* ========================================================
+   FOOTER
+   ======================================================== */
+.arcade-footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  border-top: 6px solid var(--pixel-border);
+  background: var(--pixel-surface-dark);
+}
+
+/* ========================================================
+   RESPONSIVIDAD
+   ======================================================== */
+@media (max-width: 960px) {
+  .arcade-navbar {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+  }
+  .arcade-nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  .download-zone {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cabinet-title {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* ========================================================
+   ACTUALIZACIÓN SAMULANDIA: HISTORIA Y CONTENIDOS
+   ======================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* SECCIÓN HERO / INTRODUCCIÓN SAMULANDIA */
+.hero-section {
+  text-align: center;
+  background: linear-gradient(180deg, #181c2e 0%, #14101e 100%);
+}
+
+.badge-eco {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  color: var(--retro-green);
+  background: #000;
+  border: 3px solid var(--retro-green);
+  padding: 0.4rem 0.9rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.main-title {
+  font-family: var(--font-pixel);
+  font-size: 2.4rem;
+  color: var(--retro-yellow);
+  text-shadow: 
+    4px 4px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    0 0 15px rgba(248, 197, 58, 0.4);
+  letter-spacing: 2px;
+  margin-bottom: 0.8rem;
+}
+
+.hero-tagline {
+  font-size: 1.45rem;
+  color: #fff;
+  max-width: 750px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.message-box {
+  background: #0d0a17;
+  border: 4px solid #000;
+  box-shadow: inset 3px 3px 0 0 #2a1f42;
+  padding: 1.2rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.message-icon {
+  font-size: 2.5rem;
+}
+
+.message-text h3 {
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  color: var(--retro-cyan);
+  margin-bottom: 0.3rem;
+}
+
+.message-text p {
+  font-size: 1.25rem;
+  color: #ded6f0;
+  margin-bottom: 0;
+}
+
+/* HISTORIA (CAPÍTULOS / LORE) */
+.story-card {
+  background: #191428;
+}
+
+.story-intro {
+  font-size: 1.45rem;
+  color: var(--retro-cyan);
+  margin-bottom: 1.8rem;
+}
+
+.story-chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.story-chapter {
+  background: #120e1e;
+  border: 4px solid #000;
+  box-shadow: inset 3px 3px 0 0 #261d3d;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.chapter-badge {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  display: inline-block;
+  background: #251d38;
+  color: var(--retro-cyan);
+  border: 2px solid #000;
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.chapter-badge.alert {
+  background: #73132e;
+  color: var(--retro-pink);
+}
+
+.chapter-badge.success {
+  background: #0d4a23;
+  color: var(--retro-green);
+}
+
+.story-chapter h3 {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  color: var(--retro-yellow);
+  margin-bottom: 0.8rem;
+}
+
+.story-chapter p {
+  font-size: 1.35rem;
+  color: #ded6f0;
+  margin-bottom: 0.8rem;
+}
+
+.story-chapter p:last-child {
+  margin-bottom: 0;
+}
+
+.highlight-chapter {
+  border-color: var(--retro-pink);
+}
+
+.quote-box {
+  background: rgba(247, 60, 120, 0.08);
+  border-left: 6px solid var(--retro-pink);
+  padding: 0.8rem 1.2rem;
+  margin-top: 0.8rem;
+  font-style: italic;
+  color: #ffb8d0;
+  font-size: 1.3rem;
+}
+
+/* PERSONAJES */
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.char-box {
+  background: #130f20;
+  border: 4px solid #000;
+  box-shadow: inset 3px 3px 0 0 #281e40;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.char-sprite {
+  font-size: 3rem;
+  margin-bottom: 0.6rem;
+}
+
+.char-tag {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  padding: 0.25rem 0.6rem;
+  background: #000;
+  border: 2px solid var(--retro-green);
+  color: var(--retro-green);
+  margin-bottom: 0.6rem;
+}
+
+.char-tag.enemy {
+  border-color: var(--retro-yellow);
+  color: var(--retro-yellow);
+}
+
+.char-tag.boss {
+  border-color: var(--retro-pink);
+  color: var(--retro-pink);
+}
+
+.char-box h3 {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.char-box p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+/* CONTROLES: ATAQUE (K, Z) */
+.attack-keys-layout {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.key-attack {
+  background: #5c1833;
+  color: var(--retro-pink);
+  border-color: #000;
+  box-shadow: 
+    inset -3px -3px 0 0 #330b1b,
+    inset 3px 3px 0 0 #8c2850,
+    0 4px 0 0 #000;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.1rem;
+}
+
+.cabinet-subtext {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.btn-nav-play {
+  font-size: 0.7rem;
+  padding: 0.6rem 1rem;
+}
+
+
+.char-sprite-text {
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  color: var(--retro-cyan);
+  margin-bottom: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  background: #000;
+  border: 2px solid #281f3d;
+}
+
+
+/* BOTÓN DE INICIO DE JUEGO ARCADE */
+.btn-start-game {
+  font-family: var(--font-pixel);
+  font-size: 0.95rem;
+  padding: 1.1rem 2.2rem;
+  background: var(--retro-green);
+  color: #0c3316;
+  border: 4px solid #000;
+  box-shadow: 
+    inset -4px -4px 0 0 #1b6d36,
+    inset 4px 4px 0 0 #7eeaa2,
+    0 8px 0 0 var(--pixel-border);
+  cursor: pointer;
+  margin-top: 1.2rem;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-start-game:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    inset -4px -4px 0 0 #1b6d36,
+    inset 4px 4px 0 0 #7eeaa2,
+    0 10px 0 0 var(--pixel-border);
+}
+
+.btn-start-game:active {
+  transform: translateY(4px);
+  box-shadow: 
+    inset -4px -4px 0 0 #1b6d36,
+    inset 4px 4px 0 0 #7eeaa2,
+    0 2px 0 0 var(--pixel-border);
+}

@@ -1,0 +1,257 @@
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMULANDIA - Videojuego Arcade Ecológico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fuentes Pixel Art: Press Start 2P y VT323 -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Líneas CRT / Scanlines de monitor retro -->
+  <div class="crt-scanlines"></div>
+
+  <!-- Cinta superior de anuncios (Ticker) para liberar espacio -->
+  <div class="arcade-top-ticker">
+    <span class="blink">★ MISIÓN ECOLÓGICA: SALVA EL MEDIO AMBIENTE ★</span>
+  </div>
+
+  <!-- Barra de Navegación Principal limpia y ordenada -->
+  <header class="arcade-navbar">
+    <div class="arcade-logo">
+      <a href="#" class="logo-title">SAMU<span class="neon-green">LANDIA</span></a>
+    </div>
+    <nav class="arcade-nav-links">
+      <a href="#historia" class="pixel-nav-link">HISTORIA</a>
+      <a href="#personajes" class="pixel-nav-link">PERSONAJES</a>
+      <a href="#controles" class="pixel-nav-link">CONTROLES</a>
+      <a href="#descargar" class="pixel-nav-link">DESCARGAR</a>
+      <a href="#zona-juego" class="pixel-btn btn-action btn-nav-play">JUGAR AHORA</a>
+    </nav>
+  </header>
+
+  <main class="arcade-container">
+
+    <!-- 1. INTRODUCCIÓN Y PROPÓSITO DEL JUEGO -->
+    <section class="pixel-card hero-section">
+      <div class="hero-header">
+        <span class="badge-eco">VIDEOJUEGO ECOLÓGICO RETRO</span>
+        <h1 class="main-title">SAMULANDIA</h1>
+        <p class="hero-tagline">
+          Un videojuego arcade con el propósito de entretener y concientizar sobre el impacto de la contaminación en la naturaleza.
+        </p>
+      </div>
+
+      <div class="message-box">
+        <div class="message-text">
+          <h3>EL MENSAJE DEL PROYECTO</h3>
+          <p>
+            A través de la aventura, Samulandia muestra de forma visual e interactiva cómo los desechos y la contaminación humana pueden transformar un ecosistema pacífico en un entorno hostil y peligroso.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. LA HISTORIA COMPLETA (LORE) -->
+    <section id="historia" class="pixel-card story-card">
+      <div class="card-header">
+        <h2 class="card-title">LA LEYENDA DE SAMULANDIA</h2>
+      </div>
+
+      <p class="story-intro">
+        En un bosque lejano y virgen, la naturaleza florecía en perfecta armonía... hasta que los residuos del ser humano alcanzaron sus tierras ancestrales.
+      </p>
+
+      <div class="story-chapters">
+        
+        <!-- Capítulo 1 -->
+        <div class="story-chapter">
+          <div class="chapter-badge">CAPÍTULO I</div>
+          <h3>LA LLEGADA DE LA CONTAMINACIÓN</h3>
+          <p>
+            Durante siglos, el bosque se mantuvo en paz. Sin embargo, la acumulación desmedida de basura y desperdicios provocada por la humanidad comenzó a filtrarse en la tierra y en las raíces del ecosistema, trayendo consigo una energía oscura y destructiva.
+          </p>
+        </div>
+
+        <!-- Capítulo 2 -->
+        <div class="story-chapter highlight-chapter">
+          <div class="chapter-badge alert">CAPÍTULO II</div>
+          <h3>LA MALDICIÓN DE LA GRAN PLANTA</h3>
+          <p>
+            En ese instante ocurrió lo impensable: la contaminación despertó una fuerza sobrenatural. La basura cobró voluntad propia y se apoderó de la mente de la <strong>Gran Planta</strong>, guardiana del bosque.
+          </p>
+          <div class="quote-box">
+            "Confundida, asustada y despojada de su propio juicio, la Gran Planta cree que todo ser humano representa una amenaza mortal decidida a contaminar aún más su hogar... desatando su ira contra cualquiera que se acerque."
+          </div>
+        </div>
+
+        <!-- Capítulo 3 -->
+        <div class="story-chapter">
+          <div class="chapter-badge success">CAPÍTULO III</div>
+          <h3>EL VALIENTE SAMU EN ACCIÓN</h3>
+          <p>
+            Aquí es donde inicia la gran aventura. <strong>Samu</strong>, un niño noble y de gran corazón, no dudará en adentrarse en lo desconocido. Armado con valor y determinación, asume la misión de recolectar y purificar la basura que ahora ronda convertida en peligrosos enemigos.
+          </p>
+          <p>
+            Samu deberá atravesar <strong>frondosos bosques, playas contaminadas e islas remotas</strong> hasta alcanzar el núcleo de la hostilidad vegetal, liberar la mente de la Gran Planta y devolverle la armonía al medio ambiente.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. PERSONAJES Y ROLES -->
+    <section id="personajes" class="pixel-card">
+      <div class="card-header">
+        <h2 class="card-title">PROTAGONISTA Y RIVALES</h2>
+      </div>
+
+      <div class="characters-grid">
+        
+        <!-- Samu -->
+        <div class="char-box hero-char">
+          <div class="char-sprite-text">[ HEROE ]</div>
+          <span class="char-tag">EL HÉROE</span>
+          <h3>SAMU</h3>
+          <p>Un valiente niño que no teme ensuciarse las manos para limpiar el mundo y defender a la naturaleza.</p>
+        </div>
+
+        <!-- Enemigos -->
+        <div class="char-box enemy-char">
+          <div class="char-sprite-text">[ HOSTIL ]</div>
+          <span class="char-tag enemy">HOSTILES</span>
+          <h3>LA BASURA MUTANTE</h3>
+          <p>Desechos tóxicos y plásticos que cobraron vida propia para defender la contaminación a toda costa.</p>
+        </div>
+
+        <!-- Jefe -->
+        <div class="char-box boss-char">
+          <div class="char-sprite-text">[ JEFE ]</div>
+          <span class="char-tag boss">JEFE CONFUNDIDO</span>
+          <h3>LA GRAN PLANTA</h3>
+          <p>La sabia guardiana del bosque, cuya mente fue nublada por la polución. ¡Debes salvarla, no destruirla!</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. CONTROLES DEL JUEGO -->
+    <section id="controles" class="pixel-card">
+      <div class="card-header">
+        <h2 class="card-title">MANUAL DE CONTROLES</h2>
+      </div>
+
+      <div class="controls-row">
+        <!-- Movimiento -->
+        <div class="pixel-key-box">
+          <div class="wasd-layout">
+            <div class="pixel-key key-w">W</div>
+            <div class="key-subrow">
+              <div class="pixel-key">A</div>
+              <div class="pixel-key">S</div>
+              <div class="pixel-key">D</div>
+            </div>
+          </div>
+          <h3>DESPLAZAMIENTO</h3>
+          <p>Usa <strong>A, W, S, D</strong> o las <strong>Flechas del teclado</strong> para mover a Samu por el bosque y las islas.</p>
+        </div>
+
+        <!-- Ataque -->
+        <div class="pixel-key-box attack-box">
+          <div class="attack-keys-layout">
+            <div class="pixel-key key-attack">K</div>
+            <div class="pixel-key key-attack">Z</div>
+          </div>
+          <h3>ACCIÓN Y ATAQUE</h3>
+          <p>Presiona <strong>K</strong> o <strong>Z</strong> para atacar a los enemigos de basura y limpiar los obstáculos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DESCARGAR VERSIÓN PC NATIVA -->
+    <section id="descargar" class="pixel-card download-zone">
+      <div class="download-info">
+        <span class="badge-pc">OPCIÓN EJECUTABLE PC</span>
+        <h2>¿QUIERES JUGAR EN WINDOWS?</h2>
+        <p>También puedes descargar el juego completo (.zip con Game.exe) para jugarlo directo en tu computadora.</p>
+      </div>
+      <a href="../Proyecto Modulo exportado.zip" class="pixel-btn btn-download-pixel" download>
+        DESCARGAR PARA PC (.ZIP)
+      </a>
+    </section>
+
+    <!-- ========================================================
+         6. EL JUEGO: EL GRAN CLÍMAX AL FINAL DE LA PÁGINA
+         ======================================================== -->
+    <section id="zona-juego" class="arcade-cabinet-section">
+      
+      <div class="cabinet-marquee-top">
+        <span class="marquee-star">✦</span>
+        <h2 class="cabinet-title">ZONA DE JUEGO: SAMULANDIA</h2>
+        <span class="marquee-star">✦</span>
+      </div>
+
+      <p class="cabinet-subtext">¡Es hora de ayudar a Samu! Juega directamente en tu navegador aquí abajo:</p>
+
+      <!-- Gabinete Arcade -->
+      <div class="cabinet-frame">
+        <div class="cabinet-screen-bezel">
+          
+          <div class="screen-viewport" id="game-container">
+            <!-- Iframe sin cargar hasta que pulses el botón -->
+            <iframe id="godot-frame" src="" title="Pantalla de Juego Samulandia"></iframe>
+
+            <!-- Pantalla de Inicio Arcade Detallada (Attract Mode) -->
+            <div class="pixel-placeholder" id="start-overlay">
+              <div class="arcade-title-screen">
+                <span class="machine-ready">MÁQUINA LISTA</span>
+                <h3 class="title-arcade-main">SAMULANDIA</h3>
+                <p class="start-prompt">Presiona el botón para encender el gabinete y comenzar la partida.</p>
+                <div class="start-action-zone">
+                  <button class="pixel-btn btn-arcade-start" type="button" onclick="iniciarJuego()">
+                    [ INICIAR JUEGO ]
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Brillo de monitor CRT -->
+            <div class="screen-glare"></div>
+          </div>
+
+        </div>
+
+        <!-- Panel de Botones del Gabinete -->
+        <div class="cabinet-control-panel">
+          <div class="panel-left">
+            <span class="panel-led green"></span>
+            <span class="panel-text">SISTEMA EN LÍNEA</span>
+          </div>
+          <div class="panel-right">
+            <button class="pixel-btn btn-mini" id="btn-reload" onclick="recargarJuego()">
+              REINICIAR
+            </button>
+            <button class="pixel-btn btn-mini btn-highlight" id="btn-fullscreen" onclick="toggleFullscreen()">
+              PANTALLA COMPLETA
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer estilo Créditos Arcade -->
+  <footer class="arcade-footer">
+    <p>SAMULANDIA • CUIDEMOS NUESTRO PLANETA • DESARROLLADO CON GODOT ENGINE 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
